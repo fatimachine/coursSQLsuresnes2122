@@ -142,18 +142,38 @@
         +--------------------+ <br>
     </code></li>
      <br>
-     <li> Afficher le nombre de recrutement sur l'année 2010 :<code></code></li>
+     <li> Afficher le nombre de recrutement sur l'année 2010 :<code> SELECT nom, prenom, date_embauche FROM employes WHERE date_embauche BETWEEN '2010-01-01' AND '2010-12-31'; <br>
+        +--------+----------+---------------+
+        | nom    | prenom   | date_embauche |
+        +--------+----------+---------------+
+        | Thoyer | Amandine | 2010-01-23    |
+        +--------+----------+---------------+ <br>
+    </code></li>
      <br>
 
      <li>Augmenter le salaire pour chaque employé de 100€ :<code></code></li>
      <br>
 
-     <li>Afficher le nombre de service :<code></code></li>
+     <li>Afficher le nombre de service :<code>SELECT service, COUNT(*)  FROM employes GROUP BY service;</code></li>
      <br>
 
-     <li>Afficher les informations de l'employé du service commercial gagnant le salaire le plus élevé :<code></code></li>
+     <li>Afficher les informations de l'employé du service commercial gagnant le salaire le plus élevé :<code>SELECT * FROM employes WHERE service='commercial' ORDER BY salaire  DESC LIMIT 1; <br>
+        +-------------+--------+--------+------+------------+---------------+---------+
+        | id_employes | prenom | nom    | sexe | service    | date_embauche | salaire |
+        +-------------+--------+--------+------+------------+---------------+---------+
+        |         415 | Thomas | Winter | m    | commercial | 2000-05-03    |    3550 |
+        +-------------+--------+--------+------+------------+---------------+---------+
+    <br>
+</code></li>
      <br>
-     <li> Afficher l'employé ayant été embauché en dernier :<code></code></li>
+     <li> Afficher l'employé ayant été embauché en dernier :<code>SELECT * FROM employes ORDER BY date_embauche DESC LIMIT 1; <br>
+        +-------------+-----------+--------+------+-----------+---------------+---------+
+        | id_employes | prenom    | nom    | sexe | service   | date_embauche | salaire |
+        +-------------+-----------+--------+------+-----------+---------------+---------+
+        |         990 | Stephanie | Lafaye | f    | assistant | 2015-06-02    |    1775 |
+        +-------------+-----------+--------+------+-----------+---------------+---------+
+    <br>
+</code></li>
      <br>
         </ol>
     </div>

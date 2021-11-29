@@ -253,7 +253,7 @@
                             2006 et 2010. <br>
                             <code>SELECT nom, prenom, data-embauche FROM employes WHERE date_embauche BETWEEN '2006-01-01 AND '2010-12-31';</code>
                         </li><br>
-                        <li>Dans une BD les dates sont toujours notées au format états-uniens<code>YYYY-MM-DD</code>
+                        <li>Dans une BD les dates sont toujours notées au format USA<code>YYYY-MM-DD</code>
                         </li><br>
                     </ul>
                 </div>
@@ -495,7 +495,7 @@
 
                 <div class="col-md-6">
                     <ul>
-                        <h3>a) Utiliser un alis (AS) - on cree salaire_annule dans la BDD</h3>
+                        <h3>a) Utiliser un alias (AS) - on cree salaire_annuel dans la BDD</h3>
                         <li>Avec le code précedent on a une colonne provisoire qui n'a pas de nom défini.<br>
                             <code>MariaDB [entreprise]> SELECT nom, prenom, salaire, salaire*12 AS salaire_annuel FROM employes;
                               </code>
@@ -507,7 +507,7 @@
                         <li>Le mot-clef <code>AS</code> permet de définir un alias (ici c est la nouvelle colonne
                             salaire_annuel)</li>
 
-                        <li>Ici on fait une division poura vori le salaire horaire et on passe le érsultat dans un alias
+                        <li>Ici on fait une division pourra voir le salaire horaire et on passe le résultat dans un alias
                             : <code></code></li><br>
                         <code>SELECT nom, prenom, salaire, salaire/150 AS salaire_horaire FROM employes;
                         </code>
@@ -537,7 +537,7 @@
                         </li> <br>
 
                         <li>Remarque : la même requête avec la création d'un alias sans le mot <code>AS</code> (pour
-                            info). Mais Patrick déconseil car pour ça on utilise les quotes simples : <br>
+                            info)
                             <code>SELECT AVG(salaire) 'salaire__moyen' FROM employes; <br>
                             +----------------+
                             | salaire__moyen | <br>
@@ -554,7 +554,7 @@
                     <h3>c) Arrondir avec <code>ROUND()</code></h3>
 
                     <ul>
-                        <li>Avec ROUND on peut aarrondir le résultat d'un calcul,dans un alias :
+                        <li>Avec ROUND on peut arrondir le résultat d'un calcul,dans un alias :
                             <code>SELECT nom, prenom, salaire, ROUND(salaire/150) AS salaire_horaire FROM employes;</code>
                         </li>
                         <li>
@@ -635,14 +635,7 @@
     </main>
     <!-- fin contenu principal -->
 
-
-    <!-- =================================== -->
-    <!-- pied de page -->
-    <!-- =================================== -->
-
-    <!-- Ajouter "container" if you want to extend the Footer to full width/ou container-fluid -->
-    <div class="p-5 my-5">
-
+    <div class="p-2 mx-2">
         <footer class="text-center text-lg-start bg-jaune">
      
 
@@ -654,8 +647,6 @@
             <!-- Copyright -->
         </footer>
     </div>
-    <!-- fin div container/fluid du footer -->
-
     <!-- Optional JavaScript -->
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
