@@ -103,12 +103,12 @@
                          <!-- fin row 2 -->
                          <div class="row ">
                             <div class="col-8">
-                         <h2>Creation de la table emprunt :</h2>
+                         <h2>Contenu de la table livre:</h2>
                             </div>
                             <div class="col-md-6">
                                 <figure>
-                                    <img src="img/emprunt.png" alt="emprunt">
-                                    <figcaption>La table emprunt</figcaption>
+                                    <img src="img/contenu_livre.jpg" alt="livre2">
+                                    <figcaption>Contenu table livre</figcaption>
                                 </figure>
                             </div>
                          
@@ -120,8 +120,75 @@
                            
                          </ul>
                          </div>
+                         <div class="col-md-6">
+                            <figure>
+                                <img src="img/emprunt.png" alt="emprunt">
+                                <figcaption>La table emprunt</figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-md-6">
+                            <figure>
+                                <img src="img/contenu_emprunt.jpg" alt="emprunt2">
+                                <figcaption>contenu table emprunt</figcaption>
+                            </figure>
+                        </div>
                                      </div>
                                      <!-- fin row 3 -->
+                                     <div class="row">
+                                         <div class="col-8">
+                                             <h3>Creation clé étrangère</h3>
+                                         </div>
+                                         <div class="col-md-6">
+                                             <ul>
+                                                 <li>requete emprunt:<code>ALTER TABLE emprunt ADD FOREIGN KEY (id_livre) REFERENCES bibliotheque.livre (id_livre)</code></li>
+                                             </ul>
+                                         </div>
+                                  
+                                     </div>
+                                     <!-- fin row 4 -->
+                                     <div class="row">
+                                        <div class="col-8">
+                                            <h3>Vue relationelle</h3>
+                                        </div>
+                                     
+                                               <div class="col-md-6">
+                                                   <figure class="img-fluid">
+                                                       <img src="img/vue_relationelle.png" alt="relationelle">
+                                                       <figcaption>Vue relationelle</figcaption>
+                                                   </figure>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <h3>SELECT sur plusieurs tables</h3>
+                                
+                                     
+                                               <div class="col-md-4">
+                                           <ul>
+                                               <li><code>SELECT * FROM abonne;</code></li>
+                                               <li><code>SELECT * FROM livre;</code></li>
+                                               <li><code>SELECT * FROM emprunt;</code></li>
+                                           </ul>
+                                           <hr>
+                                         
+                                           <div class="col-md-4">
+                                               <ul>
+                                                   <li>On cherche les livres qui n'ont pas été rendu :<code>SELECT * FROM emprunt WHERE date_rendu IS NULL;</code> : attention cas particulier la valeur NULL se teste avec le mot clef IS!</li>
+                                                   <li><code></code></li>
+                                                   <li><code></code></li>
+                                                   <li><code></code></li>
+                                                   <li><code></code></li>
+                                                   <li><code></code></li>
+                                                   <li><code></code></li>
+                                                   <li><code></code></li>
+                                                   <li><code></code></li>
+                                                   <li><code></code></li>
+                                                   <li><code></code></li>
+                                               </ul>
+                                          </div>
+                                    </div>
+                                    </div>
+
+
         </section>
         <!-- fin container -->
 
