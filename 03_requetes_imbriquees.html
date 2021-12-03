@@ -11,7 +11,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <link rel="icon" type="image/png" href="img/IMG-8090.JPG" />
+    <link rel="icon" type="image/png" href="img/IMG-8090.JPG" />
 
     <title>Cours SQL - Requêtes 3</title>
 
@@ -43,7 +43,7 @@
     <header class="container mt-4 p-4 bg-white">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="display-4 text-dark">Cours SQL - Requêtes  imbriquées- # 3</h1>
+                <h1 class="display-4 text-dark">Cours SQL - Requêtes imbriquées- # 3</h1>
                 <p class="lead">Base de données pour PHP Bibliothèques</p>
             </div>
         </div>
@@ -52,155 +52,184 @@
 
 
 
-        <section class="container mb-4 bg-white">
+    <section class="container mb-4 bg-white">
 
-            <!-- debut row 1 -->
-            <div class="row ">
-   <div class="col-8">
-<h2>Creation de la Bibliothèque</h2>
-   </div>
-   <div class="col-md-6">
-       <figure>
-           <img src="img/abonne.png" alt="abonne">
-           <figcaption>La table abonne</figcaption>
-       </figure>
-   </div>
+        <!-- debut row 1 -->
+        <div class="row ">
+            <div class="col-8">
+                <h2>1/Creation de la Bibliothèque</h2>
+                <h3>a/modélisation</h3>
+            </div>
+            <div class="col-md-6">
+                <figure>
+                    <img src="img/abonne.png" alt="abonne">
+                    <figcaption>La table abonne</figcaption>
+                </figure>
+            </div>
 
-   <div class="col-md-6">
-<ul>
-    <li>Creation de la table en abonne : <code>CREATE TABLE abonne (
+            <div class="col-md-6">
+                <ul>
+                    <li>Creation de la table en abonne : <code>CREATE TABLE abonne (
         id_abonne INT(3) NOT NULL AUTO_INCREMENT,
         prenom VARCHAR(20) NOT NULL,
         PRIMARY KEY (id_abonne)
         ) ENGINE=InnoDB ;</code></li>
-    <li></li>
-  
-</ul>
-</div>
+                    <li></li>
+
+                </ul>
             </div>
-            <!-- fin row 1 -->
+        </div>
+        <!-- fin row 1 -->
 
-            <div class="row ">
-                <div class="col-8">
-             <h2>Creation de la table livre :</h2>
-                </div>
-                <div class="col-md-6">
-                    <figure>
-                        <img src="img/livre.png" alt="livre">
-                        <figcaption>La table livre</figcaption>
-                    </figure>
-                </div>
-             
-                <div class="col-md-6">
-             <ul>
-                 <li>Creation de la table livre: <code>
-                    CREATE TABLE livre ( id_livre INT(3) NOT NULL AUTO_INCREMENT , auteur VARCHAR(30) NOT NULL ,titre VARCHAR(30) NOT NULL , PRIMARY KEY (id_livre)) ENGINE = InnoDB;</code></li>
-                 <li></li>
-               
-             </ul>
-             </div>
-                         </div>
-                         <!-- fin row 2 -->
-                         <div class="row ">
-                            <div class="col-8">
-                         <h2>Contenu de la table livre:</h2>
-                            </div>
-                            <div class="col-md-6">
-                                <figure>
-                                    <img src="img/contenu_livre.jpg" alt="livre2">
-                                    <figcaption>Contenu table livre</figcaption>
-                                </figure>
-                            </div>
-                         
-                            <div class="col-md-6">
-                         <ul>
-                          
-                             <li> <code>CREATE TABLE emprunt ( id_emprunt INT(3) NOT NULL AUTO_INCREMENT , id_livre INT(3) NULL DEFAULT NULL , id_abonne INT(3) NULL DEFAULT NULL , date_sortie DATE NOT NULL , date_rendu DATE DEFAULT NULL)ENGINE = InnoDB;</code></li>
-                             <li></li>
-                           
-                         </ul>
-                         </div>
-                         <div class="col-md-6">
-                            <figure>
-                                <img src="img/emprunt.png" alt="emprunt">
-                                <figcaption>La table emprunt</figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-md-6">
-                            <figure>
-                                <img src="img/contenu_emprunt.jpg" alt="emprunt2">
-                                <figcaption>contenu table emprunt</figcaption>
-                            </figure>
-                        </div>
-                                     </div>
-                                     <!-- fin row 3 -->
-                                     <div class="row">
-                                         <div class="col-8">
-                                             <h3>Creation clé étrangère</h3>
-                                         </div>
-                                         <div class="col-md-6">
-                                             <ul>
-                                                 <li>requete emprunt:<code>ALTER TABLE emprunt ADD FOREIGN KEY (id_livre) REFERENCES bibliotheque.livre (id_livre)</code></li>
-                                             </ul>
-                                         </div>
-                                  
-                                     </div>
-                                     <!-- fin row 4 -->
-                                     <div class="row">
-                                        <div class="col-8">
-                                            <h3>Vue relationelle</h3>
-                                        </div>
-                                     
-                                               <div class="col-md-6">
-                                                   <figure class="img-fluid">
-                                                       <img src="img/vue_relationelle.png" alt="relationelle">
-                                                       <figcaption>Vue relationelle</figcaption>
-                                                   </figure>
-                                    </div>
-                                    </div>
-                                    <div class="row">
-                                        <h3>SELECT sur plusieurs tables</h3>
-                                
-                                     
-                                               <div class="col-md-4">
-                                           <ul>
-                                               <li><code>SELECT * FROM abonne;</code></li>
-                                               <li><code>SELECT * FROM livre;</code></li>
-                                               <li><code>SELECT * FROM emprunt;</code></li>
-                                           </ul>
-                                           <hr>
-                                         
-                                           <div class="col-md-4">
-                                               <ul>
-                                                   <li>On cherche les livres qui n'ont pas été rendu :<code>SELECT * FROM emprunt WHERE date_rendu IS NULL;</code> : attention cas particulier la valeur NULL se teste avec le mot clef IS!</li>
-                                                   <li><code></code></li>
-                                                   <li><code></code></li>
-                                                   <li><code></code></li>
-                                                   <li><code></code></li>
-                                                   <li><code></code></li>
-                                                   <li><code></code></li>
-                                                   <li><code></code></li>
-                                                   <li><code></code></li>
-                                                   <li><code></code></li>
-                                                   <li><code></code></li>
-                                               </ul>
-                                          </div>
-                                    </div>
-                                    </div>
+        <div class="row ">
+            <div class="col-8">
+                <h2>b/creation de tables</h2>
+            </div>
+            <div class="col-md-6">
+                <figure>
+                    <img src="img/livre.png" alt="livre">
+                    <figcaption>La table livre</figcaption>
+                </figure>
+            </div>
+
+            <div class="col-md-6">
+                <ul>
+                    <li>Creation de la table livre: <code>
+                    CREATE TABLE livre ( id_livre INT(3) NOT NULL AUTO_INCREMENT , auteur VARCHAR(30) NOT NULL ,titre VARCHAR(30) NOT NULL , PRIMARY KEY (id_livre)) ENGINE = InnoDB;</code>
+                    </li>
+                    <li></li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- fin row 2 -->
+        <div class="row ">
+            <div class="col-8">
+                <h2>Contenu de la table livre:</h2>
+            </div>
+            <div class="col-md-6">
+                <figure>
+                    <img src="img/contenu_livre.jpg" alt="livre2">
+                    <figcaption>Contenu table livre</figcaption>
+                </figure>
+            </div>
+
+            <div class="col-md-6">
+                <ul>
+
+                    <li> <code>CREATE TABLE emprunt ( id_emprunt INT(3) NOT NULL AUTO_INCREMENT , id_livre INT(3) NULL DEFAULT NULL , id_abonne INT(3) NULL DEFAULT NULL , date_sortie DATE NOT NULL , date_rendu DATE DEFAULT NULL)ENGINE = InnoDB;</code>
+                    </li>
+                    <li></li>
+
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <figure>
+                    <img src="img/emprunt.png" alt="emprunt">
+                    <figcaption>La table emprunt</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-6">
+                <figure>
+                    <img src="img/contenu_emprunt.jpg" alt="emprunt2">
+                    <figcaption>contenu table emprunt</figcaption>
+                </figure>
+            </div>
+        </div>
+        <!-- fin row 3 -->
+        <div class="row">
+            <div class="col-8">
+                <h3>c/Creation clé étrangère</h3>
+            </div>
+            <div class="col-md-6">
+                <ul>
+                    <li>requete
+                        emprunt:<code>ALTER TABLE emprunt ADD FOREIGN KEY (id_livre) REFERENCES bibliotheque.livre (id_livre)</code>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- fin row 4 -->
+        <div class="row">
+            <div class="col-8">
+                <h3>d/insertion des données</h3>
+            </div>
+
+            <div class="col-md-6">
+                <figure class="img-fluid">
+                    <img src="img/vue_relationelle.png" alt="relationelle">
+                    <figcaption>Vue relationelle</figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="row">
+            <h3>2/SELECT sur plusieurs tables</h3>
 
 
-        </section>
-        <!-- fin container -->
+            <div class="col-md-4">
+                <ul>
+                    <li><code>SELECT * FROM abonne;</code></li>
+                    <li><code>SELECT * FROM livre;</code></li>
+                    <li><code>SELECT * FROM emprunt;</code></li>
+                </ul>
+                <hr>
+            </div>
+
+            <div class="col-md-4">
+                <ul>
+                    <li>On cherche les livres qui n'ont pas été rendu
+                        :<code>SELECT * FROM emprunt WHERE date_rendu IS NULL;</code> : attention cas particulier la
+                        valeur NULL se teste avec le mot clef IS!</li>
+                    <li>Quelles sont les titres des livres qui n'ont pas été rendus? :
+                        <code>SELECT * FROM livre WHERE id_livre IN (SELECT id_livre FROM emprunt WHERE date_rendu IS NULL);</code>
+                        nous cherchons des informations dans les tables livre et emprunt , la requete entre parenthèses
+                        s'execute en premier, et nous donne l'id des livres de la table 'emprunt', puis nous demandons
+                        les titres des livres correspondant aux id des livres de la première requête.</li>
+                    <li class="alert alert-danger">ATTENTION!!!!!! <br>
+                        Pour qu'une requête imbriquée sur 3 tables soit possible il faut absolument qu'une information
+                        soit commune aux 2 tables : ici l'id_livre !! Le champ id_livre nous sert 'à joindre' et faire
+                        correspondre les informations</li>
+                    <li>Afficher les prénoms des abonnés ayant empruntés des livres le 19/12/2014
+                        :<code>SELECT * FROM abonne WHERE id_abonne IN(SELECT id_abonne FROM emprunt WHERE date_sortie = '2014-12-19');</code>
+                    </li>
+                    <li>Afficher les prénoms des abonnés ayant empruntés le livre d'Alphonse Daudet
+                        :<code>SELECT prenom FROM abonne WHERE id_abonne IN(SELECT id_abonne FROM emprunt WHERE id_livre IN(SELECT id_livre FROM livre WHERE auteur = 'ALphonse Daudet'));</code>
+                        <br>
+                        La dernière requête s'execute en premier et nous sort de la table "livre les id des livres de
+                        Daudet" puis la requete du milieu nous sort les id des abonnés ayant empruntés ce livre et enfin
+                        la première requete nous donne leurs prénoms.
+                    </li>
+                    <li>Afficher le/les livre(s) empruntée par Chloé
+                        :<code>SELECT titre FROM livre WHERE id_livre IN(SELECT id_livre FROM emprunt WHERE id_abonne =(SELECT id_abonne FROM abonne WHERE prenom = 'Chloé'));</code>
+                    </li>
+                    <li>Afficher le(s) titre(s) de(s) livre(s) que Chloé n'as pas
+                        empruntée:<code>SELECT titre FROM livre WHERE id_livre NOT IN(SELECT id_livre FROM EMPRUNT WHERE id_abonne =(SELECT id_abonne FROM abonne WHERE prenom = 'Chloé'));</code>
+                    </li>
+                    <li>Afficher le titre du livre qu'elle n'as pas rendu
+                        :<code>SELECT titre FROM livre WHERE id_livre IN(SELECT id_livre FROM emprunt WHERE date_rendu IS NULL AND id_abonne=(SELECT id_abonne FROM abonne WHERE prenom ='Chloé'));</code>
+                    </li>
+                    <li>Combien de livres a emprunté Guillaume
+                        :<code>SELECT COUNT(*) AS 'nombre de livre' FROM emprunt WHERE id_abonne=(SELECT id_abonne FROM abonne WHERE prenom ='Guillaume');</code>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- fin container -->
 
 
     <div class="p-2 mx-2">
         <footer class="text-center text-lg-start bg-jaune">
-     
+
 
             <!-- Copyright -->
             <div class="text-center text-white p-5 m-5" style="background-color: mistyrose;">
                 &copy; Colombbus 2021-2022 :
-               FATIMA</a>
+                FATIMA</a>
             </div>
             <!-- Copyright -->
         </footer>

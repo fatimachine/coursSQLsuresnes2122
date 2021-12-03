@@ -33,6 +33,14 @@
 3-DELETE,effacer
 4-Exo
 ### 03_requetes_imbriquees.html
+1-Création de la BDD
+a/modélisation
+b/création de tables
+c/creation de clés étrangères
+d/insertion des données
+2-SELECT sur plusieurs tables
 ### 04_jointures.html
+1-Définition
+a/Récap
 
 
