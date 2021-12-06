@@ -1,0 +1,118 @@
+<!-- Démarrage SQL : repos sur OS (C:) -->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+<!-- =================================== -->
+<!-- MA FAVICON  -->
+<!-- =================================== -->
+        
+<link rel="icon" type="image/png" href="img/IMG-8090.JPG" />
+<!-- <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/favicon_package_v0.16/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon_package_v0.16/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon_package_v0.16/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="favicon_io/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+ -->
+
+
+    <title>Cours SQL - Les fonctions - #5</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <header class="container mt-4 p-4 bg-white">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-dark">Cours SQL - Les fonctions- # 5</h1>
+                <p class="lead">Les fonctions prédéfinies</p>
+            </div>
+        </div>
+        <!-- fin row  -->
+    </header>
+
+    <section class="container mb-4 bg-white">
+        <h2 class=" text-decoration-underline text-danger">1-Quelques fonctions</h2>
+        <div class="row">
+<div class="col-md-10">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Fonctions prédéfinies</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>SELECT CURDATE()</code></td>
+                <td>Affiche la date quand on abesoin de la date du jour dans la requête</td>
+            </tr>
+            <tr>
+                <td><code>SELECT CURDATE() + 0</code></td>
+                <td>Affiche la date courante sans tirets</td>
+            </tr>
+            <tr>
+                <td><code>SELECT CURTIME()</code></td>
+                <td>Affiche l'heure</td>
+            </tr>
+            <tr>
+                <td><code>SELECT NOW()</code></td>
+                <td>Date et heure</td>
+            </tr>
+            <tr>
+                <td><code>SELECT DATE_ADD('2021-12-06',INTERVAL 31 DAY/MONTH/YEAR)</code></td>
+                <td>Ajoute xx jour/mois/année à la date de départ</td>
+            </tr>
+            <tr>
+                <td><code>SELECT DATE_FORMAT(NOW(),'%d/%m%Y - %H:%i:%s');</code> Autre exemple : <code>SELECT date_rendu, DATE_FORMAT(date_rendu, '%d/%m/%Y') FROM emprunt</code> Autre exemple : <code>SELECT date_rendu, DATE_FORMAT(date_rendu, '%d/%m/%Y')AS 'date FR' FROM emprunt;</code></td>
+                <td>Change le format de la date du jour au format FR </td>
+            </tr>
+            <tr>
+                <td><code>SELECT CONCAT_WS(' - ','a','b','c')</code></td>
+                <td>WS with separator utile pour concaténer un code postal avec une ville</td>
+            </tr>
+            <tr>
+                <td><code>SELECT TRIM(' coucou ')</code></td>
+                <td>Supprime les espaces en début et en fin de chaîne</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+        </div>
+
+        <!-- fin row -->
+
+
+    </section>
+    <!-- fin container -->
+
+    <div class="p-2 mx-2">
+        <footer class="text-center text-lg-start bg-jaune">
+
+            <!-- Copyright -->
+            <div class="text-center text-white p-5 m-5" style="background-color: mistyrose;">
+                &copy; Colombbus 2021-2022 : FATIMA
+            </div>
+        </footer>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

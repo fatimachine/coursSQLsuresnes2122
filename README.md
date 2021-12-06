@@ -41,6 +41,10 @@ d/insertion des données
 2-SELECT sur plusieurs tables
 ### 04_jointures.html
 1-Définition
-a/Récap
+a/Jointures
+2/Exemples
+b/Jointures externes
 
 
+### 05_fonctions.html
+1-Quelques fonctions

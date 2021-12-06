@@ -1,0 +1,173 @@
+<!-- Démarrage SQL : repos sur OS (C:) -->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+<!-- =================================== -->
+<!-- MA FAVICON  -->
+<!-- =================================== -->
+        
+<link rel="icon" type="image/png" href="img/IMG-8090.JPG" />
+<!-- <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/favicon_package_v0.16/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon_package_v0.16/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon_package_v0.16/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="favicon_io/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+ -->
+
+
+    <title>Cours SQL - Exercice BDD immobilier</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <header class="container mt-4 p-4 bg-white">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-dark">Cours SQL - Exercice  </h1>
+                <p class="lead"> BDD - Immo</p>
+            </div>
+        </div>
+        <!-- fin row  -->
+    </header>
+
+    <section class="container bg-white">
+        <div class="row">
+            <div class="col">
+                <h3>Creation de la BDD immobilier :</h3>
+                <p> <code>CREATE DATABASE immobilier CHARACTER SET 'utf8';</code></p>
+            </div>
+            <div class="col">
+            
+                <h4>Commande SQL:</h4>
+                <p><code>CREATE TABLE IF NOT EXISTS agence ( <br>
+                    idAgence int(6) NOT NULL AUTO_INCREMENT, <br>
+                    nom varchar(100) NOT NULL, <br>
+                    adresse varchar(100) NOT NULL, <br>
+                    PRIMARY KEY (idAgence) <br>
+                    ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;</code></p>
+            <figure>
+                <img src="img/immo_agence.jpg" alt="immo_agence">
+                <figcaption>La table Agence</figcaption>
+            </figure>
+        </div>
+        <div class="col">
+            <h4>Commande SQL:</h4>
+            <p><code>CREATE TABLE IF NOT EXISTS demande ( <br>
+                idDemande int(5) NOT NULL AUTO_INCREMENT, <br>
+                idPersonne int(3) NOT NULL, <br>
+                genre varchar(100) NOT NULL, <br>
+                ville varchar(100) NOT NULL, <br>
+                budget int(7) NOT NULL, <br>
+                superficie int(5) NOT NULL, <br>
+                categorie varchar(100) NOT NULL, <br>
+                PRIMARY KEY (idDemande), <br>
+                KEY idPersonne (idPersonne) <br>
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;</code></p>
+            <figure>
+                <img src="img/immo_demande.jpg" alt="demande">
+                <figcaption>La table Demande</figcaption>
+            </figure>
+        </div>
+
+    <div class="col">
+
+        <h4>Commande SQL:</h4>
+        <p><code>CREATE TABLE IF NOT EXISTS logement ( <br>
+            idLogement int(4) NOT NULL AUTO_INCREMENT, <br>
+            genre varchar(100) NOT NULL, <br>
+            ville varchar(100) NOT NULL, <br>
+            prix int(7) NOT NULL, <br>
+            superficie int(5) NOT NULL, <br>
+            categorie varchar(100) NOT NULL, <br>
+            PRIMARY KEY (idLogement) <br>
+            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;</code></p>
+        <figure>
+            <img src="img/immo_logement.jpg" alt="logement">
+            <figcaption>La table Logement</figcaption>
+        </figure>
+    </div>
+ 
+        <div class="col">
+            <h4>Commande SQL:</h4>
+            <p><code>CREATE TABLE IF NOT EXISTS logement_agence ( <br>
+                idLogementAgence int(5) NOT NULL AUTO_INCREMENT, <br>
+                idAgence int(6) NOT NULL, <br>
+                idLogement int(4) NOT NULL, <br>
+                frais int(7) NOT NULL, <br>
+                PRIMARY KEY (idLogementAgence), <br>
+                KEY idAgence (idAgence), <br>
+                KEY idLogement (idLogement) <br>
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;</code></p>
+            <figure>
+                <img src="img/immo_logement_agence.jpg" alt="logement2">
+                <figcaption>La table Logement Agence</figcaption>
+            </figure>
+        </div>
+        <div class="col">
+            <h4>Commande SQL:</h4>
+            <p><code>CREATE TABLE IF NOT EXISTS logement_personne ( <br>
+                idLogementPersonne int(5) NOT NULL AUTO_INCREMENT, <br>
+                idPersonne int(3) NOT NULL, <br>
+                idLogement int(4) NOT NULL, <br>
+                PRIMARY KEY (idLogementPersonne), <br>
+                UNIQUE KEY idLogement (idLogement), <br>
+                KEY idPersonne (idPersonne) <br>
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;</code></p>
+            <figure>
+                <img src="img/immo_logement_personne.jpg" alt="logement3">
+                <figcaption>La table Logement Personne</figcaption>
+            </figure>
+        </div>
+        <div class="col">
+            <h4>Commande SQL:</h4>
+            <p><code>CREATE TABLE IF NOT EXISTS personne ( <br>
+                idPersonne int(3) NOT NULL AUTO_INCREMENT, <br>
+                prenom varchar(100) NOT NULL, <br>
+                PRIMARY KEY (idPersonne) <br>
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;</code></p>
+            <figure>
+                <img src="img/immo_personne.jpg" alt="Personne">
+                <figcaption>La table  Personne</figcaption>
+            </figure>
+        </div>
+
+        <div class="col">
+            <h3>Création de clés étrangères</h3>
+                <p>Création des clefs étrangères : <code>ALTER TABLE logement_agence <br>
+                    ADD CONSTRAINT logement_agence_ibfk_2 FOREIGN KEY (idLogement) REFERENCES logement (idLogement), <br>
+                    ADD CONSTRAINT logement_agence_ibfk_1 FOREIGN KEY (idAgence) REFERENCES agence (idAgence);</code></p>
+    </div>
+
+</div>
+    </section>
+    <!-- fin container -->
+
+
+            <!-- Copyright -->
+            <div class="text-center text-white" style="background-color: mistyrose;">
+                &copy; Colombbus 2021-2022 : FATIMA
+            </div>
+  
+
+    <!-- Optional JavaScript -->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
