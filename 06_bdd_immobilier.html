@@ -46,7 +46,7 @@
 
     <section class="container bg-white">
         <div class="row">
-            <div class="col">
+            <div class="col-12">
                 <h3>Creation de la BDD immobilier :</h3>
                 <p> <code>CREATE DATABASE immobilier CHARACTER SET 'utf8';</code></p>
             </div>
@@ -147,10 +147,14 @@
 
         <div class="col">
             <h3>Création de clés étrangères</h3>
-                <p>Création des clefs étrangères : <code>ALTER TABLE logement_agence <br>
+                <p>Création des clefs étrangères : <code>ALTER TABLE demande <br>
+                    ADD CONSTRAINT demande_ibfk_1 FOREIGN KEY (idPersonne) REFERENCES personne (idPersonne)  <br> <br> ALTER TABLE logement_agence
                     ADD CONSTRAINT logement_agence_ibfk_2 FOREIGN KEY (idLogement) REFERENCES logement (idLogement), <br>
-                    ADD CONSTRAINT logement_agence_ibfk_1 FOREIGN KEY (idAgence) REFERENCES agence (idAgence);</code></p>
-    </div>
+                    ADD CONSTRAINT logement_agence_ibfk_1 FOREIGN KEY (idAgence) REFERENCES agence (idAgence) <br> <br>ALTER TABLE logement_personne
+                    ADD CONSTRAINT logement_personne_ibfk_2 FOREIGN KEY (idPersonne) REFERENCES personne (idPersonne), <br>
+                    ADD CONSTRAINT logement_personne_ibfk_1 FOREIGN KEY (idLogement) REFERENCES logement (idLogement);
+                     </code></p>
+                     </div>
 
 </div>
     </section>
