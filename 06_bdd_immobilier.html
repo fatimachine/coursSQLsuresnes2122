@@ -156,6 +156,28 @@
                      </code></p>
                      </div>
 
+             <div class="col-12">
+                 <h3 class="text-danger">EXO</h3>
+                   <ol>
+                             <li>Affichez le nom des agences : <code>SELECT nom FROM agence;</code></li>
+                             <li>Affichez le numéro de l'agence « Orpi » : <code>SELECT idAgence FROM agence WHERE nom = 'Orpi';</code></li>
+                             <li>Affichez le premier enregistrement de la table logement : <code>SELECT * FROM logement WHERE idLogement=(SELECT MIN(idLogement) FROM logement)</code> OU <code>SELECT * FROM logement ORDER BY idLogement LIMIT 0,1;</code></li>
+                             <li>Affichez le nombre de logements (Alias : Nombre_de_logements) : <code>SELECT COUNT(idLogement) AS 'nombre de logements' FROM logement;</code></li>
+                             <li>Affichez les logements à vendre à moins de 150 000 € dans l'ordre croissant des prix : <code>SELECT * FROM logement WHERE prix < 150000 AND categorie ='vente' ORDER BY prix;</code></li>
+                             <li>Afficher le nombre de logements à la location (alias : 'nombre') : <code>SELECT COUNT(idLogement) AS 'nombre' FROM logement WHERE categorie = 'location';</code></li>
+                             <li>Afficher les villes différentes recherchées par les personnes demandeuse d'un logement : <code>SELECT DISTINCT ville FROM demande;</code></li>
+                             <li>Affichez le nombre de biens à vendre par ville : <code>SELECT COUNT(idLogement) AS 'nombre de logements', ville FROM logement WHERE ville IN (SELECT DISTINCT(ville) FROM logement) AND categorie = 'vente' GROUP BY ville</code> OU <code>SELECT ville, COUNT(ville)AS 'nombre de logements à la vente' FROM logement WHere categorie= 'vente' GROUP BY 'ville';</code></li>
+                             <li>Quels sont les id des logements destinés à la location ? : <code>SELECT idLogement FROM logement WHERE categorie='location';</code></li>
+                             <li>Quels sont les id des logements entre 20 et 30m² ? : <code>SELECT idLogement FROM logement WHERE superficie BETWEEN '20' AND '30';</code></li>
+                             <li>Quel est le prix vendeur(hors comissission) du logement le moins cher a vendre ? : <code>SELECT * FROM logement WHERE categorie = 'vente' LIMIT 0,1 ORDER BY prix ASC;</code> OU <code>SELECT MIN(prix) AS 'prix minimum' FROM logement WHERE categorie = 'vente';</code></li>
+                             <li>Dans quelle ville se trouve les maisons à vendre ? : <code>SELECT DISTINCT(ville) FROM logement WHERE genre = 'maison' AND categorie = 'vente';</code></li>
+                             <li>L'agence Orpi souhaite diminuer les frais qu'elle applique sur le logement ayant l'id « 5246 ». Passer les frais de ce logement de 800 à 730€ : <code> UPDATE logement_agence SET frais = 730 WHERE idLogement = (SELECT idAgence FROM agence WHERE nom='Orpi'); </code></li>
+                             <li>Quels sont les logements gérés par l'agence « laforet » : <code>SELECT idLogement FROM logement_agence WHERE idAgence = (SELECT idAgence FROM agence WHERE nom = 'laforet')</code></li>
+                             <li>Affichez le nombre de propriétaires dans la ville de Paris (Alias : Nombre propriétaire parisien) : <code>SELECT COUNT(DISTINCT(lp.idPersonne)) AS 'nombre de proprios parisiens' FROM logement_personne lp, logement l WHERE lp.idLogement = l.idLogement AND l.ville='paris'</code></li>
+                             
+                   </ol>
+             </div>
+
 </div>
     </section>
     <!-- fin container -->
