@@ -236,11 +236,25 @@
                     <li>Afficher les infos des trois premières personnes souhaitant acheter un logement :
                         <code>SELECT * FROM personne , demande   WHERE personne.idPersonne = demande.idPersonne and demande.categorie = 'vente' ORDER BY demande.idDemande LIMIT 0,3;</code>
                     </li>
-                  <li>Affichez le prénom du vendeur pour le logement ayant la référence « 5770 »
-                    Affichez les prénoms des personnes souhaitant avoir un logement à Lyon
-                    Affichez les prénoms des personnes souhaitant accéder à un logement en location à Paris
-                    Affichez les prénoms des personnes souhaitant acheter un logement de la plus grande à la plus petite superficie
-                    Quel sont les prix finaux proposés par les agences pour la maison à la vente ayant la référence « 5091 » ? (Alias :  frais d'agence inclus)</li>
+                  <li> Requete de jointure : Affichez le prénom du vendeur pour le logement ayant la référence « 5770 »  : <code>SELECT personne.prenom, logement_personne.idLogement, logement.ville, logement.superficie, logement.genre, agence.nom <br>
+                    FROM personne, logement_personne, logement, agence, logement_agence <br>
+                    WHERE personne.idPersonne = logement_personne.idPersonne <br>
+                    AND logement_personne.idLogement = logement.idLogement <br>
+                    AND logement_personne.idLogement = logement_agence.idLogement <br>
+                    AND agence.idAgence = logement_agence.idAgence <br>
+                    AND logement_personne.idLogement = 5770</code></li>
+                  <li>  Affichez les prénoms des personnes souhaitant avoir un logement à Lyon :  <code>SELECT personne.prenom, demande.ville FROM demande, personne WHERE personne.idPersonne = demande.idPersonne AND demande.ville = 'Lyon';</code></li>
+
+                   <li>  Affichez les prénoms des personnes souhaitant accéder à un logement en location à Paris <code>SELECT personne.prenom, demande.ville
+                    FROM demande, personne
+                    WHERE personne.idPersonne = demande.idPersonne
+                    AND demande.ville = 'Paris'
+                    AND demande.categorie ='location'</code></li>
+
+
+                  <li>  Affichez les prénoms des personnes souhaitant acheter un logement de la plus grande à la plus petite superficie <code>SELECT personne.prenom, demande.superficie FROM personne, demande WHERE personne.idPersonne = demande.idPersonne AND demande.categorie = 'vente' ORDER BY demande.superficie DESC;</code></li>
+
+                      <li>Quel sont les prix finaux proposés par les agences pour la maison à la vente ayant la référence « 5091 » ? (Alias :  frais d'agence inclus) : <code>SELECT (logement.prix + logement_agence.frais) AS 'frais agence inclus' FROM logement, logement_agence WHERE logement.idLogement = logement_agence.idLogement AND logement_agence.idLogement = '5091';</code></li>
                     <br>
                     
                 </ol>
